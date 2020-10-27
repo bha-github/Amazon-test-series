@@ -1,1 +1,10 @@
+C++ code for Sqaure root
 
+long long int floorSqrt(long long int x) 
+{
+    long long int i=0;
+    while((i+1)*(i+1)<=x){
+        i++;
+    }
+    return i;
+}
