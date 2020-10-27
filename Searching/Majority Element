@@ -1,0 +1,33 @@
+//C++ code for Majority Element / Moore's voting algorithm
+
+This is a two-step process. 
+1. The first step gives the element that maybe the majority element in the array. If there is a majority element in an array, 
+then this step will definitely return majority element, otherwise, it will return candidate for majority element.
+2. Check if the element obtained from the above step is majority element. This step is necessary as there might be no majority element.
+
+
+
+int check(int ele,int a[],int n){
+    int c=0;
+    for(int i=0;i<n;i++){
+        if(a[i]==a[ele])c++;
+    }
+    return (c>(n/2))?1:0;
+}
+int majorityElement(int a[], int size)
+{
+    int meindex=0,count=1;
+    for(int i=1;i<size;i++){
+        if(a[meindex]==a[i]){
+            count++;
+        }
+        else{
+            count--;
+    }
+        if(count==0){
+            meindex=i;
+            count=1;
+        }
+    }
+    return (check(meindex,a,size))?a[meindex]:-1;
+}
