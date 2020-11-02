@@ -1,0 +1,29 @@
+//C++ code for Counting elements in two arrays 
+
+int binsearch(int a[],int n,int key){
+    int l=0,u=n-1;
+    int m;
+    while(l<=u){
+        cout<<l<<" "<<u<<endl;
+        m=(l+u)>>1;
+        if(a[m]<=key){
+            l=m+1;
+        }
+        else{
+            u=m-1;
+        }
+        
+    }
+    //cout<<"++++++++++++++"<<endl;
+    return u+1;
+}
+vector<int> countEleLessThanOrEqual(int arr1[], int arr2[], 
+                             int m, int n)
+{
+    vector <int> res;
+    sort(arr2,arr2+n);
+    for(int i=0;i<m;i++){
+        res.push_back(binsearch(arr2,n,arr1[i]));
+    }
+    return res;
+}
