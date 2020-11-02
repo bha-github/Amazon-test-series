@@ -1,0 +1,8 @@
+//C++ code for  Search in a Sorted and Rotated Array
+
+int Search(vector<int> vec, int K) {
+    for(int i=0;i<vec.size();i++){
+        if(K==vec[i])return i;
+    }
+    return -1;
+}
