@@ -1,0 +1,13 @@
+#python 3 code for Median of 2 Sorted Arrays of Different Sizes 
+
+def MedianOfArrays(array1, array2):
+    a=array1+array2;
+    a.sort()
+    if len(a)%2==1:
+        return a[len(a)//2]
+    else:
+        d=(a[len(a)//2]+a[len(a)//2-1])/2
+        if d==int(d):
+            return int(d)
+        else:
+            return d
