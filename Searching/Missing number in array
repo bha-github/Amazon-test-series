@@ -1,0 +1,5 @@
+
+
+int MissingNumber(vector<int>& array, int n) {
+    return n*(n+1)/2-accumulate(array.begin(),array.end(),0);
+}
