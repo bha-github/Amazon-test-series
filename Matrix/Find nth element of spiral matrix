@@ -1,0 +1,22 @@
+//C++ code for  Find nth element of spiral matrix
+
+ int findK(int matrix[MAX][MAX], int r, int c, int k)
+{
+    vector<int> res;
+        int row=0,col=0;
+        while(row<r&& col<c){
+            for(int i=col;i<c;i++)res.push_back(matrix[row][i]);
+            row++;
+            for(int i=row;i<r;i++)res.push_back(matrix[i][c-1]);
+            c--;
+            if(row<r){
+                for(int i=c-1;i>=col;i--)res.push_back(matrix[r-1][i]);
+                r--;
+            }
+            if(col<c){
+                for(int i=r-1;i>=row;i--)res.push_back(matrix[i][col]);
+                col++;
+            }
+        }
+        return res[k-1];
+}
