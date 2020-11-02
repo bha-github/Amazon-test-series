@@ -1,0 +1,17 @@
+//C++ code for Floor in a Sorted Array
+
+int findFloor(vector<long long> v, long long n, long long x){
+    long long int l=0;
+    long long int u=n-1;
+    long long int m;
+    while(l<=u){
+        m=(l+u)>>1;
+        if(v[m]<=x){
+            l=m+1;
+        }
+        else{
+            u=m-1;
+        }
+    }
+    return u;
+}
