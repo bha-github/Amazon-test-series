@@ -1,0 +1,27 @@
+//C++ code for Unique rows in boolean matrix
+
+vector<vector<int>> uniqueRow(int matrix[MAX][MAX],int row,int col)
+{
+    vector<vector<int>> res;
+    vector<int> aux;
+    map<int,int> mp;
+    int p,sum,c=0;
+    for(int i=0;i<row;i++){
+        sum=0;
+        p=1;
+        for(int j=0;j<col;j++){
+            sum+=matrix[i][j]*p;
+            p*=2;
+        }
+        if(mp.find(sum)==mp.end()){
+            mp[sum]=i;
+            aux.clear();
+            for(int j=0;j<col;j++){
+                aux.push_back(matrix[i][j]);
+            }
+            res.push_back(aux);
+            c++;
+        }
+    }
+    return res;
+}
