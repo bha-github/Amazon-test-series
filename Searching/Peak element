@@ -1,0 +1,13 @@
+//C++ code for Peak element
+
+int peakElement(int arr[], int n)
+{
+   int l=0,u=n-1;
+   int m;
+   while(l<=u){
+       m=(l+u)>>1;
+       if((m==0||arr[m-1]<=arr[m])&&(m==n-1||arr[m+1]<=arr[m]))return m;
+       else if(arr[m-1]>arr[m])u=m-1;
+       else l=m+1;
+   }
+}
